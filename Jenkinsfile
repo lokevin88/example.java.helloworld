@@ -1,7 +1,7 @@
 pipeline {
     agent { docker 'maven:3-alpine' }
     triggers {
-        pollSCM('* * * * *')
+        pollSCM('')
     }
     stages {
         stage('Compile') {
