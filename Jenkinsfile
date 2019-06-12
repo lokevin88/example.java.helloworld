@@ -8,8 +8,17 @@ pipeline {
             steps {
                 echo 'Compiling....'
             }
+        }stage('Sonarqube 1') {
+            environment {
+                scannerHome = tool 'SonarQubeScanner'
+            }
+            steps {
+                withSonarQubeEnv('sonarqube') {
+                    sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.4.1.1168:sonar'
+                }
+            }
         }
-        stage('Sonarqube') {
+        stage('Sonarqube 2') {
             environment {
                 scannerHome = tool 'SonarQubeScanner'
             }
