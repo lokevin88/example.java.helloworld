@@ -15,7 +15,7 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv('sonarqube') {
-                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.host.url=parameter"
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.host.url='http://localhost:9000'"
                 }
                 timeout(time: 10, unit: 'MINUTES') {
                     waitForQualityGate abortPipeline: true
