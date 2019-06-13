@@ -9,6 +9,13 @@ pipeline {
                 echo 'Compiling....'
             }
         }
+        stage('Example Build') {
+            agent { docker 'maven:3-alpine' } 
+            steps {
+                echo 'Hello, Maven'
+                sh 'mvn --version'
+            }
+        }
         stage('Sonarqube 1') {
             steps {
                 withSonarQubeEnv('sonarqube') {
