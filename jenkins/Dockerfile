@@ -1,1 +1,1 @@
-FROM jenkins:2.121.3
+FROM jenkins/jenkins:lts
