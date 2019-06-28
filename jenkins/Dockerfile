@@ -1,1 +1,1 @@
-FROM jenkins/jenkins:lts
+FROM bitnami/jenkins:latest
